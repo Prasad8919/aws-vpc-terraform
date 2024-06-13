@@ -25,6 +25,7 @@ resource "aws_internet_gateway" "gw" {
   )
 }
 
+# public subnet
 resource "aws_subnet" "public" { # first name is public[0], second name is public[1]
   count = length(var.public_subnet_cidrs)
   availability_zone = local.az_names[count.index]
@@ -41,6 +42,7 @@ resource "aws_subnet" "public" { # first name is public[0], second name is publi
   )
 }
 
+# private subnet
 resource "aws_subnet" "private" { # first name is private[0], second name is private[1]
   count = length(var.private_subnet_cidrs)
   availability_zone = local.az_names[count.index]
@@ -56,6 +58,7 @@ resource "aws_subnet" "private" { # first name is private[0], second name is pri
   )
 }
 
+# database subnet
 resource "aws_subnet" "database" { # first name is database[0], second name is database[1]
   count = length(var.database_subnet_cidrs)
   availability_zone = local.az_names[count.index]

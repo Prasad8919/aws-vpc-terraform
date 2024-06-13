@@ -97,7 +97,7 @@ variable "public_route_table_tags" {
     default = {}
 }
 
-#### Public Route table ####
+#### Private Route table ####
 variable "private_route_table_tags" {
     type = map
     default = {}
